@@ -1,0 +1,37 @@
+{
+	"folders":
+	[
+		{
+			"path": "/nfs/2017/j/jfleisch/cursus/fdf_1"
+		},
+		{
+			"path": "/nfs/2017/j/jfleisch/cursus/vscode"
+		}
+	],
+	"settings":
+	{
+		"workbench.colorTheme": "Dobri Next -C02- Indigo",
+		"workbench.iconTheme": "vscode-icons",
+		"editor.fontSize": 15,
+		"files.exclude":
+		{
+			"**/.git": true,
+			"**/.svn": true,
+			"**/.hg": true,
+			"**/CVS": true,
+			"**/.DS_Store": true,
+			"**/._*": true,
+			"**/.dist": true,
+		},
+		"editor.acceptSuggestionOnEnter": "on",
+		"editor.cursorBlinking": "solid",
+		"editor.cursorStyle": "underline",
+		"editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+		"files.insertFinalNewline": true,
+		"files.associations": {
+			"fdf.h": "c",
+			"libft.h": "c",
+			"libgfx.h": "c",
+			"mlx.h": "c"
+	},
+}
