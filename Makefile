@@ -10,51 +10,49 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME = printf
+NAME =  ft_printf
 
-FLAGS = -Wall -Werror -Wextra -g
+print = -Wall -Werror -Wextra -g
 
 CC = gcc
 
 NORM = norminette -R CheckForbiddenSourceHeader
 
 SRC = main.c \
-		parser.c
-
+		parser.c \
+		
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
 LIBFT = ./libft/libft.a
 LIBFTINC = -I./libft
 LINK_FT = -L./libft -lft
 
-LIBPF = ./libftprintf/libftprintf.a
-LIBPFINC = -I./libftprintf
-LINK_PF = -L./libftprintf -lftprintf
+LIBPF = ./libpf/libpf.a
+LIBPFINC = -I./libpf/include
+LINK_PF = -L./libpf -lpf
 
 SRCDIR = ./src/
-INCDIR = ./includes/
+INCDIR = ./include/
 OBJDIR = ./obj/
 
-all: obj libftprintf libft $(NAME)
+all: obj libft libpf $(NAME)
 
-libpf:
-	@rm -rf $(NAME)
-	@rm -rf $(OBJDIR)
-	@make -C ./libftprintf fclean
+lib: fclean
+	@make -C ./libpf fclean
 	@make
 
 obj:
 	@mkdir -p $(OBJDIR)
 
 $(OBJDIR)%.o:$(SRCDIR)%.c
-	@$(CC) $(FLAGS) $(LIBPFINC) $(LIBFTINC) -I $(INCDIR) -o $@ -c $<
+	@$(CC) $(print) $(LIBFTINC) $(LIBPFINC) -I $(INCDIR) -o $@ -c $<
 
-libftprintf: $(LIBPF)
+libpf: $(LIBPF)
 
 libft: $(LIBFT)
 
 $(LIBPF):
-	@make -C ./libftprintf
+	@make -C ./libpf
 
 $(LIBFT):
 	@make -C ./libft
@@ -62,17 +60,17 @@ $(LIBFT):
 $(NAME): $(OBJ)
 	@echo "-> Compiling $(NAME)..."
 	@$(CC) -o $(NAME) $(OBJ) $(LINK_PF) $(LINK_FT)
-	@echo "...Done"
+	@echo "\n   ******* Done *******"
 
 clean:
 	@echo "-> Cleaning $(NAME) object files..."
 	@rm -rf $(OBJDIR)
-	@make -C ./libft clean
 
 fclean: clean
 	@echo "-> Cleaning $(NAME)...\n "
 	@rm -rf $(NAME)
 	@make -C ./libft fclean
+	@make -C ./libpf fclean
 
 re: fclean all
 

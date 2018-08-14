@@ -12,7 +12,7 @@
 
 HEADER = -I./libft.h
 
-FLAGS = -Wall -Werror -Wextra -g
+print = -Wall -Werror -Wextra -g
 
 NORM = norminette -R CheckForbiddenSourceHeader
 
@@ -110,7 +110,7 @@ all: $(NAME)
 
 $(NAME):
 	@echo "-> Creating archive $(NAME)...\n "
-	@$(CC) -c $(FLAGS) $(SRC)
+	@$(CC) -c $(print) $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 
@@ -119,11 +119,12 @@ clean:
 	@$(RM) $(OBJ)
 
 fclean: clean
-	@echo "-> Cleaning $(NAME)..."
+	@echo "-> Cleaning $(NAME)...\n"
 	@$(RM) $(NAME)
 
 re: fclean all
-#	@$(CC) $(FLAGS) $(SRC) -I $(HEADER)
+
+#	@$(CC) $(print) $(SRC) -I $(HEADER)
 #	@ar rc $(NAME) $(OBJ)
 #	@ranlib $(NAME)
 

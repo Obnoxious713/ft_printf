@@ -16,14 +16,14 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
-# include <sys/types.h>
-# include <sys/uio.h>
+// # include <types.h>
+// # include <uio.h>
 # include <math.h>
 # include "get_next_line.h"
 
 # define MAX(a,b) (a > b ? a : b)
 # define MIN(a,b) (a < b ? a : b)
-# define ABS(x) ((x > 0) ? x : x * -1)
+# define ABS(x) ((x > 0) ? x : -x)
 
 typedef struct		s_gnl
 {

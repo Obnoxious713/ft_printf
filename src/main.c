@@ -10,8 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../libftprintf/libftprintf.h"
-#include "../libft/libft.h"
+#include "../libpf/include/libpf.h"
 
 void			display_usage(char *av)
 {
@@ -23,14 +22,8 @@ void			display_usage(char *av)
 
 int				main(int ac, char **av)
 {
-	char		*res;
-
-	res = (char*)ft_memalloc(sizeof(char));
 	if (ac == 2)
-	{
-		res = parse_input(av[1]);
-		ft_putendl(res);
-	}
+		ft_printf(av[1]);
 	else
 		display_usage(av[0]);
 	return (0);
