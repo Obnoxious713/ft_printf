@@ -31,7 +31,7 @@ SRC = main.c \
 		parse_po.c \
 		parse_size.c \
 		parse_x.c \
-		parse_X1.c \
+		parse_x_1.c \
 		print_extra_flags.c \
 		print_extra_stuff.c
 		

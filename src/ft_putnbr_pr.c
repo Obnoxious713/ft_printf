@@ -24,7 +24,7 @@ void			ft_putnbr_pr(int num, t_print *print)
 		if (num == -2147483648)
 		{
 			min = 1;
-			num = 2147483648;
+			num = (int)2147483648;
 		}
 		else
 			num *= -1;

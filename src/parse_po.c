@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_X1.c                                          :+:      :+:    :+:   */
+/*   parse_po.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jfleisch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "../libpf/include/libpf.h"
 
-void			form_O1(t_form *form, t_print *print, va_list vl)
+void			form_o_1(t_form *form, t_print *print, va_list vl)
 {
 	unsigned long long	n;
 
@@ -48,8 +48,8 @@ void			form_o(t_form *form, t_print *print, va_list vl)
 		print->loc += ft_strlen(ft_ultoa_base(l, 8));
 		print_flags_back(form, print, 0, ft_ultoa_base(l, 8));
 	}
-	if (form->O1 == 1)
-		form_O1(form, print, vl);
+	if (form->o_1 == 1)
+		form_o_1(form, print, vl);
 }
 
 void			form_p(t_form *form, t_print *print, va_list vl)

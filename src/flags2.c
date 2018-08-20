@@ -15,7 +15,7 @@
 int				num_len(long num)
 {
 	int			i;
-	
+
 	i = 0;
 	if (num == 0)
 		return (1);
@@ -32,12 +32,11 @@ int				num_len(long num)
 	return (i);
 }
 
-
-void		form_len(t_form *form, int num, char *str)
+void			form_len(t_form *form, int num, char *str)
 {
 	if (form->d == 1 || form->i == 1)
 		form->len = num_len(num);
-	else if (form->x == 1 || form->X1 == 1 || form->s == 1)
+	else if (form->x == 1 || form->x_1 == 1 || form->s == 1)
 		form->len = ft_strlen(str);
 	else if (form->c == 1)
 		form->len = 1;
@@ -45,8 +44,8 @@ void		form_len(t_form *form, int num, char *str)
 		form->len = ft_strlen(str) + 2;
 }
 
-void 		print_flags(t_form *form, t_print *print,
-							long num, char * str)
+void			print_flags(t_form *form, t_print *print,
+							long num, char *str)
 {
 	if (print->plus == 1)
 		print_plus(form, print, num);
@@ -71,7 +70,7 @@ void 		print_flags(t_form *form, t_print *print,
 		print->precision = 0;
 }
 
-void		print_flags_back(t_form *form, t_print *print,
+void			print_flags_back(t_form *form, t_print *print,
 								long num, char *str)
 {
 	if (print->minus == 1)
@@ -83,8 +82,8 @@ void		print_flags_back(t_form *form, t_print *print,
 			else
 				form->len = (int)num_len(num);
 		}
-		else if (form->x == 1 || form->X1 == 1 || form->o == 1 ||
-					form->O1 == 1 || form->s == 1 || form->S1 == 1)
+		else if (form->x == 1 || form->x_1 == 1 || form->o == 1 ||
+					form->o_1 == 1 || form->s == 1 || form->s_1 == 1)
 			form_xo(form, print, str);
 		else if (form->p == 1)
 		{

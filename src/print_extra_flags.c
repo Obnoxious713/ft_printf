@@ -14,7 +14,7 @@
 
 void			print_plus(t_form *form, t_print *print, int num)
 {
-	if (form->d == 1 || form->D1 == 1 || form->i == 1)
+	if (form->d == 1 || form->d_1 == 1 || form->i == 1)
 	{
 		if (num >= 0)
 		{
@@ -58,7 +58,7 @@ void			print_zed(t_form *form, t_print *print)
 
 void			print_sharp(t_form *form, t_print *print, char *str)
 {
-	if ((form->x == 1 || form->X1 == 1) && ft_atoi(str) > 0)
+	if ((form->x == 1 || form->x_1 == 1) && ft_atoi(str) > 0)
 	{
 		if (form->x == 1)
 			ft_putstr("0x");
@@ -66,7 +66,7 @@ void			print_sharp(t_form *form, t_print *print, char *str)
 			ft_putstr("0X");
 		print->loc += 2;
 	}
-	else if (form->o == 1 || form->O1 == 1)
+	else if (form->o == 1 || form->o_1 == 1)
 	{
 		if (ft_atoi(str) != 0)
 		{

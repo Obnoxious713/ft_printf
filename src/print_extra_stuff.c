@@ -62,14 +62,15 @@ void			print_just_zed(int y, int z_len, t_print *print)
 	}
 }
 
-void			print_just(t_form *form, t_print *print, intmax_t num, char *str)
+void			print_just(t_form *form, t_print *print, intmax_t num,
+								char *str)
 {
 	int			i;
 	int			x;
 	int			y;
 	int			z_len;
 
-	i = print_just_i(form , print, num, str);
+	i = print_just_i(form, print, num, str);
 	x = i;
 	y = 0;
 	z_len = print->after_size - x;

@@ -37,14 +37,12 @@ int				get_loc(const char *format, int i, t_print *print)
 	return (i);
 }
 
-int				parser(const char *format, t_form *form,  t_print *print, va_list vl)
+int				parser(const char *format, t_form *form, t_print *print,
+							va_list vl)
 {
 	int			i;
 
 	i = 0;
-	form->C1 = 0;
-	if (vl)
-		i = 0;
 	while (format[i])
 	{
 		i = get_loc(format, i, print);
@@ -52,24 +50,24 @@ int				parser(const char *format, t_form *form,  t_print *print, va_list vl)
 			break ;
 		while (format[i])
 		{
-			// i = parse_i(format, i, print, form);
+			i = parse_flag_i(format, i, print, form);
 			if ((ft_isdigit(format[i + 1] && format[i + 1] != '0')
 					|| format[i + 1] == '.'))
 				i = parse_just(format, i, form, print);
-			// i = parse_size_i(format, i, print);
-			// i = parse_space_i(format, i, print);
+			i = parse_size_i(format, i, print);
+			i = space_i(format, i, print);
 			if (parse_form(format, i, form))
 			{
-				// i = parse_form_i(print, form, vl, i);
+				i = parse_form_i(form, print, vl, i);
 				break ;
 			}
-			// i = parse_last_i(format, i, print);
+			i = last_i(format, i, print);
 		}
 	}
 	return (0);
 }
 
-void 			def_val2(t_print *print)
+void			def_val2(t_print *print)
 {
 	print->size = 0;
 	print->just_size = 0;
@@ -95,19 +93,19 @@ void			def_val(t_print *print, t_form *form)
 	print->j = 0;
 	print->z = 0;
 	form->s = 0;
-	form->S1 = 0;
+	form->s_1 = 0;
 	form->p = 0;
 	form->d = 0;
-	form->D1 = 0;
+	form->d_1 = 0;
 	form->i = 0;
 	form->o = 0;
-	form->O1 = 0;
+	form->o_1 = 0;
 	form->u = 0;
-	form->U1 = 0;
+	form->u_1 = 0;
 	form->x = 0;
-	form->X1 = 0;
+	form->x_1 = 0;
 	form->c = 0;
-	form->C1 = 0;
+	form->c_1 = 0;
 	form->len = 0;
 }
 
@@ -116,7 +114,7 @@ int				ft_printf(const char *format, ...)
 	va_list		vl;
 	t_print		print;
 	t_form		form;
-	
+
 	form.c = 0;
 	print.loc = 0;
 	def_val(&print, &form);

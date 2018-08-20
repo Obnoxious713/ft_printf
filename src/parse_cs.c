@@ -24,21 +24,16 @@ void			ft_putstr_min(char *str, t_print *print)
 	}
 }
 
-void			form_S1(t_form *form,  t_print *print, va_list vl)
+void			form_s_1(t_form *form, t_print *print, va_list vl)
 {
 	int			i;
-	/*
-	** wchar_t		*str; 
-	*/
-	char		*str;
+	wchar_t		*str;
 
-	/*
-	** str = va_arg(vl, wchar_t*);
-	*/
-	str = va_arg(vl, char*);
+	i = 0;
+	str = va_arg(vl, wchar_t*);
 	if (print->precision == 1)
 	{
-		ft_putstr_prec(str, print);
+		ft_putwstr_prec(str, print);
 		form->len = print->after_size;
 	}
 	else
@@ -54,12 +49,12 @@ void			form_S1(t_form *form,  t_print *print, va_list vl)
 		print_minus(form, print);
 }
 
-void			form_s(t_form *form,  t_print *print, va_list vl)
+void			form_s(t_form *form, t_print *print, va_list vl)
 {
 	char		*str;
 
 	if (form->s == 1 && print->l_1 == 1)
-		form_S1(form, print, vl);
+		form_s_1(form, print, vl);
 	else if (form->s == 1)
 	{
 		str = va_arg(vl, char*);
@@ -79,10 +74,10 @@ void			form_s(t_form *form,  t_print *print, va_list vl)
 	}
 }
 
-void			form_c(t_form *form,  t_print *print, va_list vl)
+void			form_c(t_form *form, t_print *print, va_list vl)
 {
 	int			c;
-	wchar_t 	C1;
+	wchar_t		c_1;
 
 	c = '\0';
 	if (form->c == 1)
@@ -95,11 +90,11 @@ void			form_c(t_form *form,  t_print *print, va_list vl)
 		print->loc++;
 		print_flags_back(form, print, c, NULL);
 	}
-	else if (form->C1 == 1)
+	else if (form->c_1 == 1)
 	{
-		C1 = va_arg(vl, wchar_t);
-		ft_putchar(C1);
+		c_1 = va_arg(vl, wchar_t);
+		ft_putchar(c_1);
 		print->loc++;
-		print_flags_back(form, print, C1, NULL);
+		print_flags_back(form, print, c_1, NULL);
 	}
 }
