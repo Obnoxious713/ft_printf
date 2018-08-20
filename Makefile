@@ -20,6 +20,20 @@ NORM = norminette -R CheckForbiddenSourceHeader
 
 SRC = main.c \
 		parser.c \
+		ft_putnbr_pr.c \
+		flags.c \
+		flags2.c \
+		ft_putulong.c \
+		parse_cs.c \
+		parse_d.c \
+		parse_loc.c \
+		parse_num_form.c \
+		parse_po.c \
+		parse_size.c \
+		parse_x.c \
+		parse_X1.c \
+		print_extra_flags.c \
+		print_extra_stuff.c
 		
 OBJ = $(addprefix $(OBJDIR),$(SRC:.c=.o))
 
@@ -37,7 +51,7 @@ OBJDIR = ./obj/
 
 all: obj libft libpf $(NAME)
 
-lib: fclean
+pflib: fclean
 	@make -C ./libpf fclean
 	@make
 
@@ -60,7 +74,7 @@ $(LIBFT):
 $(NAME): $(OBJ)
 	@echo "-> Compiling $(NAME)..."
 	@$(CC) -o $(NAME) $(OBJ) $(LINK_PF) $(LINK_FT)
-	@echo "\n   ******* Done *******"
+	@echo "\n   * * *   Done   * * *"
 
 clean:
 	@echo "-> Cleaning $(NAME) object files..."
