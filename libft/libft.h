@@ -121,5 +121,4 @@ char				*ft_strrev(char *str);
 char				*ft_strtoupper(char *str);
 char				*ft_itoa_base(int n, int base);
 
-
 #endif

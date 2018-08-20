@@ -26,12 +26,12 @@ static int		count(long long n)
 	return (i);
 }
 
-char	*ft_ltoa(long long n)
+char			*ft_ltoa(long long n)
 {
-	char	*str;
-	int		size;
-	int		neg;
-	char	*str2;
+	char		*str;
+	int			size;
+	int			neg;
+	char		*str2;
 
 	neg = 1;
 	if (n == '\0')

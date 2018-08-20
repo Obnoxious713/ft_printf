@@ -37,7 +37,7 @@ t_gnl		*ft_listnew(int fd)
 int			helper(char **line, t_gnl **buffsave)
 {
 	char			*e;
-	// t_gnl			*tmp;
+	t_gnl			*tmp;
 
 	e = ft_strchr((*buffsave)->c, '\n');
 	if (e != NULL)
@@ -53,7 +53,7 @@ int			helper(char **line, t_gnl **buffsave)
 		*(*buffsave)->c = '\0';
 		return (1);
 	}
-	// tmp = NULL;
+	tmp = NULL;
 	return (0);
 }
 
