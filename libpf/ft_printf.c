@@ -37,7 +37,7 @@ int				get_loc(const char *format, int i, t_print *print)
 	return (i);
 }
 
-int				parser(const char *format, t_print *print, t_form *form, va_list vl)
+int				parser(const char *format, t_form *form,  t_print *print, va_list vl)
 {
 	int			i;
 
@@ -122,7 +122,7 @@ int				ft_printf(const char *format, ...)
 	def_val(&print, &form);
 	def_val2(&print);
 	va_start(vl, format);
-	parser(format, &print, &form, vl);
+	parser(format, &form, &print, vl);
 	va_end(vl);
 	def_val(&print, &form);
 	def_val2(&print);

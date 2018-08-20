@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <fcntl.h>
-// # include <types.h>
-// # include <uio.h>
+# include <sys/types.h>
+# include <sys/uio.h>
 # include <math.h>
 # include "get_next_line.h"
 
@@ -114,4 +114,12 @@ int					get_next_line(const int fd, char **line);
 int					ft_gnl(const int fd, char **line);
 char				*ft_strjoinfree(char *s1, char *s2, int f);
 char				*ft_strndup(const char *s, size_t n);
+char				*ft_ltoa(long long n);
+char				*ft_ltoa_base(long long n, int base);
+char				*ft_ultoa_base(unsigned long long n, int base);
+char				*ft_strrev(char *str);
+char				*ft_strtoupper(char *str);
+char				*ft_itoa_base(int n, int base);
+
+
 #endif

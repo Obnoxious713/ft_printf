@@ -99,7 +99,13 @@ SRC = ft_atoi.c \
 				get_next_line.c \
 				ft_gnl.c \
 				ft_strjoinfree.c \
-				ft_strndup.c
+				ft_strndup.c \
+				ft_ltoa.c \
+				ft_ltoa_base.c \
+				ft_ultoa_base.c \
+				ft_strrev.c \
+				ft_strtoupper.c \
+				ft_itoa_base.c
 
 OBJ = $(patsubst %.c, %.o, $(SRC))
 # ar == archiver; #
